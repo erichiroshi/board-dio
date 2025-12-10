@@ -18,7 +18,7 @@ import static br.com.dio.persistence.config.ConnectionConfig.getConnection;
 @AllArgsConstructor
 public class BoardMenu {
 
-    private final Scanner scanner = new Scanner(System.in).useDelimiter("\n");
+    private final Scanner scanner = new Scanner(System.in);
 
     private final BoardEntity entity;
 
@@ -27,6 +27,7 @@ public class BoardMenu {
             System.out.printf("Bem vindo ao board %s, selecione a operação desejada\n", entity.getId());
             var option = -1;
             while (option != 9) {
+            	System.out.println("======================");
                 System.out.println("1 - Criar um card");
                 System.out.println("2 - Mover um card");
                 System.out.println("3 - Bloquear um card");
@@ -37,6 +38,7 @@ public class BoardMenu {
                 System.out.println("8 - Ver card");
                 System.out.println("9 - Voltar para o menu anterior um card");
                 System.out.println("10 - Sair");
+                System.out.println("======================");
                 option = scanner.nextInt();
                 switch (option) {
                     case 1 -> createCard();

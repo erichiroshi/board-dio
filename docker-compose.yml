@@ -1,0 +1,28 @@
+name: board
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql-container-dio
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_DATABASE: board
+      MYSQL_ROOT_PASSWORD: board
+      MYSQL_USER: board
+      MYSQL_PASSWORD: board
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin-container-dio
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: board
+    depends_on:
+      - mysql
+
+volumes:
+  db_data:
